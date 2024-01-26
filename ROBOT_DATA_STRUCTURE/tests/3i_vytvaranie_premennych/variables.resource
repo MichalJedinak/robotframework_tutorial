@@ -1,0 +1,2 @@
+*** Variables ***
+${SUIT_VAR_FROM_RESOURCE}   SUITE FILE

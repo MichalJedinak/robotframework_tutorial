@@ -1,0 +1,3 @@
+--pythonpath libs
+--outputdir  reports
+-v HOST:app.sk

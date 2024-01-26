@@ -1,0 +1,7 @@
+message:  Hello , Word !
+number:  42
+animals:
+    -cat
+    -dog
+    -frog
+    -birth

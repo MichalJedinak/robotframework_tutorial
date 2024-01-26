@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <script src="https://unpkg.com/htmx.org@1.9.8"></script>
+</head>
+<style>
+      a{
+            text-decoration: none;
+            color: white;
+      }
+      body{
+            width: 100%;
+            height: 100vh;
+            color:#00C0B4;
+            background-color:#222222;
+            font-size: 100%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      header{   
+            display: flex;
+            flex-wrap: inherit;
+            justify-content: left;  
+            width: 100%;
+            height: 3.5rem;
+            background-color: black;
+            color: white;
+            text-align: left;  
+            position: absolute;
+            top:0; 
+            left: 0;  
+            text-align: left;
+            padding-left: 2rem;   
+            padding-right: 2rem;   
+      }
+      header p{
+            align-self: center;  
+            display: flex;
+            justify-content: space-between;         
+      }
+
+      #first{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 3rem !important;
+      }
+      h1{
+            font-size: 2.5rem;
+            font-weight: 550;
+      }
+      .mt-3{
+            margin-top:  3rem!important;
+      }
+      .mb-3{
+            margin-top:  3rem!important;
+      }
+      h2{
+            font-size: clamp(1.4rem,3vw,2.6rem);
+            font-weight: 350;
+      }
+      #span{
+            padding: .5rem;
+            width: 2rem;
+            height: 2rem; 
+      }
+      button{
+            background-color: #0d6efd;
+            color: white;
+            padding:.5rem  .6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            letter-spacing:1px;
+      }
+      button:hover{
+            background-color: #0b5ed7;
+      }
+      div{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            gap: .5rem;
+      }
+      #btns{
+            background-color: rgb(48, 46, 45);
+            width: 100px;
+            padding: .3rem;
+            border-radius: 6px;
+      }
+      #clr{
+            height: 2.5rem;
+            position: relative;
+            
+      }
+      ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            text-decoration: none;
+            font-size: 1rem;
+      }
+      ul li  a:hover{
+            font-weight: 600;
+      }
+      section{
+            text-align: center;
+            margin-top: 2rem;
+            /* color: rgba(18, 209, 146, 0.795); */
+      }
+      select{
+            width: 900px;
+            padding: .5rem;
+            border-radius: 8px;
+            border: 1px solid rgb(42, 97, 247) ;
+            font-family: inherit;
+            gap: 2rem;
+            font-size: 1.1rem;
+            font-weight: 200;
+
+      }
+      .textCenter{ 
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            margin-top: 2rem;           
+            visibility: visible;
+            font-size: clamp(1.2rem,3vw,2.3rem);
+      }
+ 
+
+</style>
+<body>
+      <header>
+            <p>Playground</p>
+            <ul class="nav-bar">
+                  <li><a href="select.html">cakanienatext</a></li>
+                  <li><a id="click-l" href="#">klikanie</a></li>
+                  <li><a id="select-l" href="#">vyberanie</a></li>
+                  <li><a id="reads-l" href="#">vycitanie</a></li>
+                  <li><a id="tbl-l" href="#">tabulka</a></li>
+                  <li><a id="rozhd-l" href="#">rozhodovanie</a></li>
+            </ul>
+      </header>
+      <div id="first">
+            <H1  class="mt-3 mb-3">Klikanie na tlačidlo</H1>
+      
+            <button id="clickBtn">Klikaj</button>
+      
+            <div class="counter">
+                  <h2>Počet klikov: <span id="span">0</span></h2> 
+            </div>
+            <div id="btns">
+                  <button id="clr">&circlearrowleft;</button>
+                  <button id="down">&DownArrow;</button>
+            </div>
+      </div>
+      <section  id="second">
+            <h1>Vyberanie Elementu</h1>
+
+            <select name="hero" id="chooseYourHero" >
+                  <option disabled  selected value><p id="firstOption">Vyber svojho hrdinu</p></option>
+                  <option value="Batman">Batman</option>
+                  <option value="Thor">Thor</option>
+                  <option value="Wolverin">Wolverin</option>
+                  <option value="Black Panter">Black Panter</option>
+                  <option value="Harley Queen">Harley Queen</option>
+            </select>
+            <div class="textCenter">
+                  <h2>Tvojhrdina je<span id="heroResult"> </span>!</h2>
+            </div>
+            
+      </section>
+      <script>
+            var clicks = 0;
+            //nájdeme elementy s id clickbtn a h2
+            var div_first = document.getElementById("first");
+            var div_second = document.getElementById("second");
+            var click = document.getElementById("click-l");
+            var select_l = document.getElementById("select-l");
+            var button = document.getElementById ("clickBtn");
+            var span = document.getElementById ("span");
+            var clear = document.getElementById("clr");
+            var clear = document.getElementById("down");
+            var heroResult = document.getElementById("heroResult")
+            var  hero = document.getElementsByTagName("option")
+            var  changeHiden = document.getElementsByClassName("textCenter")
+
+            //pridáme udalosť onclick na tlačidlo
+            button.onclick = function () {
+            //zvýšime počet kliknutí o 1
+            clicks++;
+
+            //prepíšeme hodnotu elementu h2 na počet kliknutí
+            span.innerHTML = clicks;
+            };
+            clr.onclick = function () {
+                  clicks = 0;
+                  span.innerHTML = clicks;
+            }
+            down.onclick = function () {
+             let minus = 0;
+                  if (clicks >=1) {
+                      clicks--  
+                  }
+                  span.innerHTML = clicks;
+            }
+
+
+            for (var i = 0; i < hero.length; i++) {
+                  hero.onclick = function() {
+                  let name =" meso";
+                  heroResult.innerHTML = name;
+                  for (var j = 0; j < changeHiden.length; j++) {
+                  changeHiden[j].style.visibility = 'visible';
+    }               
+            };
+            }
+      </script>
+</body>
+</html>
