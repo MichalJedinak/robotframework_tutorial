@@ -3,9 +3,11 @@ Documentation      REST API testing whit RequestsLibrary.
 Library            RequestsLibrary
 Library            SeleniumLibrary
 Library            JSONLibrary
+Suite Teardown    Run Keyword If Test Failed    Set Screenshot Directory    ${NONE}
 
 *** Variables ***
 ${URL}            https://jsonplaceholder.typicode.com
+${txt}                   message=Disable screenshots.
 
 
 *** Test Cases ***
@@ -75,3 +77,4 @@ DELETE Request
 
    ${response}=   DELETE   url=${URL}/posts/100   expected_status=200
    Log To Console    ${response.json()}
+

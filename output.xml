@@ -1,44 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-01-26T11:27:49.703041" rpa="false" schemaversion="5">
-<suite id="s1" name="Tests" source="c:\Users\BigON\Documents\PROJECTS\RobotFramework\5_rest_api\tests.robot">
-<test id="s1-t1" name="DELETE Request" line="73">
-<kw name="DELETE" owner="RequestsLibrary">
-<msg time="2024-01-26T11:27:51.626675" level="INFO">DELETE Request : url=https://jsonplaceholder.typicode.com/posts/100 
- path_url=/posts/100 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
- body=None 
- </msg>
-<msg time="2024-01-26T11:27:51.628670" level="INFO">DELETE Response : url=https://jsonplaceholder.typicode.com/posts/100 
- status=200, reason=OK 
- headers={'Date': 'Fri, 26 Jan 2024 10:27:50 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1706264870&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;s=wxLQUriPmCHaKE%2BN9iKUK7prhBomL1Bmn9cBRRCh3SY%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1706264870&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;s=wxLQUriPmCHaKE%2BN9iKUK7prhBomL1Bmn9cBRRCh3SY%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1706264893', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '84b810d0c98327b8-PRG', 'alt-svc': 'h3=":443"; ma=86400'} 
- body={} 
- </msg>
-<msg time="2024-01-26T11:27:51.629669" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>url=${URL}/posts/100</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2024-01-26T11:27:50.291494" elapsed="1.338175"/>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-01-26T15:00:01.347627" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="c:\Users\BigON\Documents\PROJECTS\RobotFramework\ROBOT_DATA_STRUCTURE\tests\3r_zakaz_screenshots\tests.robot">
+<test id="s1-t1" name="Disable screenshots in tests" line="9">
+<kw name="Log To Console" owner="BuiltIn" type="SETUP">
+<arg>...Test staring...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-01-26T15:00:01.655603" elapsed="0.000997"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
-<arg>${response.json()}</arg>
+<arg>${txt}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-01-26T11:27:51.631668" elapsed="0.001998"/>
+<status status="PASS" start="2024-01-26T15:00:01.658596" elapsed="0.001998"/>
 </kw>
-<doc>Deletind  data whit DELETE metod.</doc>
-<status status="PASS" start="2024-01-26T11:27:50.287501" elapsed="1.347165"/>
+<doc>disabling screenshots in tests.</doc>
+<status status="PASS" start="2024-01-26T15:00:01.653602" elapsed="0.007990"/>
 </test>
-<doc>REST API testing whit RequestsLibrary.</doc>
-<status status="PASS" start="2024-01-26T11:27:49.715031" elapsed="1.922630"/>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<msg time="2024-01-26T15:00:01.666592" level="FAIL">Keyword 'Run Keyword If Test Failed' can only be used in test teardown.</msg>
+<arg>Set Screenshot Directory</arg>
+<arg>${NONE}</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="FAIL" start="2024-01-26T15:00:01.666592" elapsed="0.016983">Keyword 'Run Keyword If Test Failed' can only be used in test teardown.</status>
+</kw>
+<doc>Disabled screenshot in the tests</doc>
+<status status="FAIL" start="2024-01-26T15:00:01.360614" elapsed="0.323957">Suite teardown failed:
+Keyword 'Run Keyword If Test Failed' can only be used in test teardown.</status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tests">Tests</stat>
 </suite>
 </statistics>
 <errors>
