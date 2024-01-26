@@ -1,2 +1,0 @@
-AK by sme tieto súbori potrebovali vyggenerovať taj to urobíme cez príkaz 
-v konzole ....>   rebot .\output.xml
